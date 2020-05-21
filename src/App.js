@@ -4,11 +4,14 @@ import './App.css';
 import TodoItem from './components/TodoItem';
 
 function App() {
+  const todos = ["Go to market", "Buy food", "Make dinner"];
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-          <TodoItem/>
+          <TodoItem title="go to gym"/>
+          <TodoItem title="come back home"/>
+          <TodoItem title="studying"/>
         <a
           className="App-link"
           href="https://reactjs.org"
