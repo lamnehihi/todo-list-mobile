@@ -1,6 +1,6 @@
 h1 {
   font-size: 100px;
-  color: rgba(255, 0, 0, 0.091);
+  color: rgba(154, 0, 0, 0.159);
   width: 100%;
   font-size: 100px;
   font-weight: 100;
@@ -20,40 +20,34 @@ p {
 .App {
   text-align: center;
   box-shadow: 1px 1px 3px rgb(186, 186, 186);
-  margin-top: 10vh;
+  margin-top: 5vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.App .input {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  box-shadow: 0px 1px 3px rgb(186, 186, 186);
+  background-color: #f0f0f025;
 }
 
-.App-link {
-  color: #61dafb;
+.App .input input {
+  padding: 0;
+  border: none;
+  outline: none;
+  height: 65px;
+  font-size: 24px;
+  text-decoration: initial;
+  width: 100%;
+  background-color: #f0f0f000;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App .input input::placeholder {
+  color: rgb(216, 216, 216);
+  font-size: 24px;
+  font-weight: 200;
+  font-style: italic;
+}
+
+.App .input img {
+  width: 20px;
+  margin: 0rem 1rem 0rem 2rem;
 }
