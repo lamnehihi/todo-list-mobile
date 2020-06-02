@@ -1,5 +1,26 @@
+h1 {
+  font-size: 100px;
+  color: rgba(255, 0, 0, 0.091);
+  width: 100%;
+  font-size: 100px;
+  font-weight: 100;
+  text-align: center;
+  margin: 0;
+}
+
+p {
+    font-size:36px;
+    color: rgba(0, 0, 0, 0.447);
+    width: 100%;
+    font-weight: 200;
+    text-align: center;
+    margin: 0;
+}
+
 .App {
   text-align: center;
+  box-shadow: 1px 1px 3px rgb(186, 186, 186);
+  margin-top: 10vh;
 }
 
 .App-logo {

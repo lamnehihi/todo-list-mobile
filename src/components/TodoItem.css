@@ -3,9 +3,26 @@
   font-weight: 300;
   font-size: 24px;
   color: #4d4d4d;
+  display: flex;
+  width: 500px;
+  border: 1px solid #eee;
+  padding: 1.5rem;
 }
 
-.TodoItem-complete {
+.TodoItem-complete span{
   text-decoration: line-through;
   opacity: .3;
+}
+
+.TodoItem img {
+  width: 35px;
+  margin-right: 1rem;
+}
+
+.TodoItem .notComplete {
+  border: 1px solid rgb(230, 230, 230);
+  border-radius: 50%;
+  width: 33px;
+  height: 33px;
+  margin-right: 1rem;
 }

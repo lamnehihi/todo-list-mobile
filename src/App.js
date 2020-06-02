@@ -8,31 +8,49 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      todoItems : [
+      todoItems: [
         { title: "Go to market", isComplete: true },
-        { title: "Buy food" , isComplete: true},
+        { title: "Buy food", isComplete: true },
         { title: "Make dinner" },
-      ]
-    }
+      ],
+    };
   }
-  itemClick() {
-    this.setState({
-      todoItems : [
-        this.props.item.isComplete = !this.props.item.isComplete
-      ]
-    });
+  itemClick(item) {
+    return (event) => {
+      const isComplete = item.isComplete;
+      const todoItems = this.state.todoItems;
+      const index = todoItems.indexOf(item);
+      this.setState({
+        todoItems: [
+          ...todoItems.slice(0, index),
+          {
+            title: item.title,
+            isComplete: !isComplete,
+          },
+          ...todoItems.slice(index + 1),
+        ],
+      });
+    };
   }
   render() {
     const todoItems = this.state.todoItems;
     return (
-      <div className="App">
-        {
-          todoItems.length > 0 && todoItems.map((item, index) => (
-          <TodoItem key={index} item={item} onClick={this.itemClick}/>
-        ))}
-        {
-          todoItems.length === 0 && <p>Nothing here!</p>
-        }
+      <div >
+        <h1>todos</h1>
+        <div className="input">
+
+        </div>
+        <div className="App">
+          {todoItems.length > 0 &&
+            todoItems.map((item, index) => (
+              <TodoItem
+                key={index}
+                item={item}
+                onClick={this.itemClick(item)}
+              />
+            ))}
+          {todoItems.length === 0 && <p>Nothing here!</p>}
+        </div>
       </div>
     );
   }
