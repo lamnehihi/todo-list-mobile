@@ -37,6 +37,19 @@ class App extends Component {
     };
   }
 
+  itemDelete(item) {
+    return (event) => {
+      const todoItems = this.state.todoItems;
+      const index = todoItems.indexOf(item);
+      this.setState({
+        todoItems: [
+          ...todoItems.slice(0, index),
+          ...todoItems.slice(index + 1),
+        ],
+      });
+    };
+  }
+
   addItem(event) {
     if (event.keyCode === 13) {
       const value = event.target.value;
@@ -78,6 +91,7 @@ class App extends Component {
                 key={index}
                 item={item}
                 onClick={this.itemClick(item)}
+                onClickDelete={this.itemDelete(item)}
               />
             ))}
           {todoItems.length === 0 && <p>Nothing here!</p>}

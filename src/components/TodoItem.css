@@ -7,6 +7,7 @@
   width: 500px;
   border: 1px solid #eee;
   padding: 1.5rem;
+  justify-content: space-between;
 }
 
 .TodoItem-complete span{
@@ -25,4 +26,16 @@
   width: 33px;
   height: 33px;
   margin-right: 1rem;
+}
+
+.TodoItem .title {
+  display: flex;
+}
+
+.TodoItem .deleteBtn {
+  display: none;
+}
+
+.TodoItem:hover .deleteBtn {
+  display: inline;
 }

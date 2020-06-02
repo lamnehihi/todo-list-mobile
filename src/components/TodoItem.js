@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./TodoItem.css";
 import checkBox from "./success.svg";
+import deleteBtn from "./delete.svg";
 
 class TodoItem extends Component {
   render() {
@@ -12,13 +13,16 @@ class TodoItem extends Component {
     }
     return (
       <div className={className}>
-        {
-          item.isComplete && <img src={checkBox} onClick={this.props.onClick} />
-        }
-        {
-          item.isComplete !== true && <div onClick={this.props.onClick} className="notComplete"></div>
-        }
-        <span>{item.title}</span>
+        <div className="title">
+          {item.isComplete && (
+            <img src={checkBox} onClick={this.props.onClick} />
+          )}
+          {item.isComplete !== true && (
+            <div onClick={this.props.onClick} className="notComplete"></div>
+          )}
+          <span>{item.title}</span>
+        </div>
+        <img src={deleteBtn} onClick={this.props.onClickDelete} className="deleteBtn"/>
       </div>
     );
   }
