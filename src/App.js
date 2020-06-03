@@ -12,7 +12,10 @@ class App extends Component {
       todoItems: [
         { title: "Go to market", isComplete: true },
         { title: "Buy food", isComplete: true },
-        { title: "Make dinner" },
+        { title: "Work out", isComplete: true },
+        { title: "Có làm thì mới có ăn" },
+        { title: "Không làm mà đòi có ăn" },
+        { title: "Thì ăn gì ?" },
       ],
     };
 
@@ -56,7 +59,7 @@ class App extends Component {
       if (value === "") return;
       if (value.trim() === "") return;
       this.setState({
-        newItem : '',
+        newItem: "",
         todoItems: [{ title: value.trim() }, ...this.state.todoItems],
       });
       event.target.value = "";
@@ -65,18 +68,51 @@ class App extends Component {
 
   onChange(event) {
     this.setState({
-      newItem : event.target.value
+      newItem: event.target.value,
     });
   }
 
   render() {
     const todoItems = this.state.todoItems;
     return (
-      <div>
-        <h1>todos</h1>
+      <div className="container">
+        <h1>DAILIST</h1>
         <div className="App">
+          <div className="upcoming section">
+            <span>upcoming</span>
+            <div className="todos">
+              {todoItems.length > 0 &&
+                todoItems
+                  .filter((item) => !item.isComplete)
+                  .map((item, index) => (
+                    <TodoItem
+                      key={index}
+                      item={item}
+                      onClick={this.itemClick(item)}
+                      onClickDelete={this.itemDelete(item)}
+                    />
+                  ))}
+            </div>
+          </div>
+          <div className="finished section">
+            <span>finished</span>
+            <div className="todos">
+              {todoItems.length > 0 &&
+                todoItems
+                  .filter((item) => item.isComplete)
+                  .map((item, index) => (
+                    <TodoItem
+                      key={index}
+                      item={item}
+                      onClick={this.itemClick(item)}
+                      onClickDelete={this.itemDelete(item)}
+                    />
+                  ))}
+            </div>
+          </div>
+          {todoItems.length === 0 && <p>Nothing here!</p>}
           <div className="input">
-            <img src={downArrow}/>
+            <img src={downArrow} />
             <input
               type="text"
               placeholder="What needs to be done?"
@@ -85,16 +121,6 @@ class App extends Component {
               onKeyUp={this.addItem}
             ></input>
           </div>
-          {todoItems.length > 0 &&
-            todoItems.map((item, index) => (
-              <TodoItem
-                key={index}
-                item={item}
-                onClick={this.itemClick(item)}
-                onClickDelete={this.itemDelete(item)}
-              />
-            ))}
-          {todoItems.length === 0 && <p>Nothing here!</p>}
         </div>
       </div>
     );

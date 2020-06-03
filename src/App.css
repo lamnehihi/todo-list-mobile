@@ -1,11 +1,11 @@
 h1 {
-  font-size: 100px;
-  color: rgba(154, 0, 0, 0.159);
-  width: 100%;
-  font-size: 100px;
-  font-weight: 100;
-  text-align: center;
+  color: rgb(255, 255, 255);
   margin: 0;
+  width: 100%;
+  font-size: 36px;
+  font-weight: 300;
+  text-align: center;
+  letter-spacing: .5rem;
 }
 
 p {
@@ -17,10 +17,18 @@ p {
     margin: 0;
 }
 
+.container {
+  margin-top: 15vh;
+  border-radius: 12px;
+  background-color: #5FB4BF;
+  padding: 3rem;
+  margin-bottom: 15vh;
+  box-shadow: 1px 1px 15px rgb(148, 148, 148);
+}
+
 .App {
-  text-align: center;
   box-shadow: 1px 1px 3px rgb(186, 186, 186);
-  margin-top: 5vh;
+  margin-top: 50px;
 }
 
 .App .input {
@@ -50,4 +58,16 @@ p {
 .App .input img {
   width: 20px;
   margin: 0rem 1rem 0rem 2rem;
+}
+
+.App .section {
+  display: flex;
+  flex-direction: column;
+}
+
+.App .section span {
+  margin: 1rem 0rem;
+}
+
+.App .upcoming .todos {
 }
