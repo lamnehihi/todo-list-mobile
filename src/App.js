@@ -79,8 +79,8 @@ class App extends Component {
         <h1>DAILIST</h1>
         <div className="App">
           <div className="upcoming section">
-            <span>upcoming</span>
             <div className="todos">
+              {todoItems.length > 0 && <span className="span">UPCOMING</span>}
               {todoItems.length > 0 &&
                 todoItems
                   .filter((item) => !item.isComplete)
@@ -88,6 +88,7 @@ class App extends Component {
                     <TodoItem
                       key={index}
                       item={item}
+                      index={index}
                       onClick={this.itemClick(item)}
                       onClickDelete={this.itemDelete(item)}
                     />
@@ -95,8 +96,8 @@ class App extends Component {
             </div>
           </div>
           <div className="finished section">
-            <span>finished</span>
             <div className="todos">
+              {todoItems.length > 0 && <span className="span">FINISHED</span>}
               {todoItems.length > 0 &&
                 todoItems
                   .filter((item) => item.isComplete)
@@ -104,6 +105,7 @@ class App extends Component {
                     <TodoItem
                       key={index}
                       item={item}
+                      index={index}
                       onClick={this.itemClick(item)}
                       onClickDelete={this.itemDelete(item)}
                     />

@@ -3,7 +3,7 @@ h1 {
   margin: 0;
   width: 100%;
   font-size: 36px;
-  font-weight: 300;
+  font-weight: 800;
   text-align: center;
   letter-spacing: .5rem;
 }
@@ -27,7 +27,6 @@ p {
 }
 
 .App {
-  box-shadow: 1px 1px 3px rgb(186, 186, 186);
   margin-top: 50px;
 }
 
@@ -63,11 +62,21 @@ p {
 .App .section {
   display: flex;
   flex-direction: column;
+  color: #fff;
+  font-weight: 600;
 }
 
-.App .section span {
-  margin: 1rem 0rem;
+.App .section .span {
+  margin: 1rem 0rem 0rem 0rem;
+  font-weight: 800;
+  font-size: 16px;
+  margin-left: .8rem;
+  letter-spacing: .17rem;
 }
 
-.App .upcoming .todos {
+.App .finished {
+  margin-top: 3rem;
 }
+
+
+

@@ -1,23 +1,36 @@
 .TodoItem {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 300;
-  font-size: 24px;
-  color: #4d4d4d;
   display: flex;
-  width: 500px;
-  border: 1px solid #eee;
-  padding: 1.5rem;
   justify-content: space-between;
+  width: 500px;
+  margin: 1rem 0rem;
+  padding: 1.5rem;
+  font-weight: 800;
+  font-size: 20px;
+  color: #4d4d4d;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+.TodoItem-complete {
+  background-color: #5FB4BF;
+  border: none;
+  box-shadow: 0px 0px 10px rgba(2, 1, 1, 0.267);
+  color: white;
 }
 
 .TodoItem-complete span{
   text-decoration: line-through;
-  opacity: .3;
+  opacity: .8;
 }
 
 .TodoItem img {
   width: 35px;
   margin-right: 1rem;
+}
+
+.TodoItem .index {
+  margin-right: .5rem;
 }
 
 .TodoItem .notComplete {

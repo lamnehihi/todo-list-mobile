@@ -5,6 +5,7 @@ import deleteBtn from "./delete.svg";
 
 class TodoItem extends Component {
   render() {
+    const index = "0" + (this.props.index + 1) + ".";
     const item = this.props.item;
     const classNames = require("classnames");
     let className = "TodoItem";
@@ -12,14 +13,9 @@ class TodoItem extends Component {
       className = classNames(className, " TodoItem-complete");
     }
     return (
-      <div className={className}>
+      <div className={className} onClick={this.props.onClick}>
         <div className="title">
-          {item.isComplete && (
-            <img src={checkBox} onClick={this.props.onClick} />
-          )}
-          {item.isComplete !== true && (
-            <div onClick={this.props.onClick} className="notComplete"></div>
-          )}
+          <span className="index">{index}</span>
           <span>{item.title}</span>
         </div>
         <img src={deleteBtn} onClick={this.props.onClickDelete} className="deleteBtn"/>
