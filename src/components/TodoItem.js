@@ -13,8 +13,8 @@ class TodoItem extends Component {
       className = classNames(className, " TodoItem-complete");
     }
     return (
-      <div className={className} onClick={this.props.onClick}>
-        <div className="title">
+      <div className={className}>
+        <div className="title" onClick={this.props.onClick}>
           <span className="index">{index}</span>
           <span>{item.title}</span>
         </div>

@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import "./App.css";
 import TodoItem from "./components/TodoItem";
+import ModalAdd from "./components/ModalAdd";
+import NothingHere from "./components/NothingHere";
+
 import { render } from "@testing-library/react";
 import addBtn from "./add.svg";
-import ModalAdd from "./components/ModalAdd";
 import classNames from "classnames";
 
 class App extends Component {
@@ -12,12 +14,12 @@ class App extends Component {
     this.state = {
       newItem: "",
       todoItems: [
-        { title: "Go to market", isComplete: true },
-        { title: "Buy food", isComplete: true },
-        { title: "Work out", isComplete: true },
-        { title: "Có làm thì mới có ăn" },
-        { title: "Không làm mà đòi có ăn" },
-        { title: "Thì ăn gì ?" },
+        // { title: "Go to market", isComplete: true },
+        // { title: "Buy food", isComplete: true },
+        // { title: "Work out", isComplete: true },
+        // { title: "Có làm thì mới có ăn" },
+        // { title: "Không làm mà đòi có ăn" },
+        // { title: "Thì ăn gì ?" },
       ],
       isAdd: false,
     };
@@ -48,6 +50,7 @@ class App extends Component {
     return (event) => {
       const todoItems = this.state.todoItems;
       const index = todoItems.indexOf(item);
+      console.log(index);
       this.setState({
         todoItems: [
           ...todoItems.slice(0, index),
@@ -132,17 +135,8 @@ class App extends Component {
                     ))}
               </div>
             </div>
-            {todoItems.length === 0 && <p>Nothing here!</p>}
-            {/* <div className="input">
-            <img src={downArrow} />
-            <input
-              type="text"
-              placeholder="What needs to be done?"
-              value={this.state.newItem}
-              onChange={this.onChange}
-              onKeyUp={this.addItem}
-            ></input>
-          </div> */}
+            {todoItems.length === 0 && <NothingHere />
+            }
             <img src={addBtn} className="input" onClick={this.Adding} />
           </div>
         </div>

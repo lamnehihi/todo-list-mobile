@@ -43,6 +43,7 @@
 
 .TodoItem .title {
   display: flex;
+  width: 100%;
 }
 
 .TodoItem .deleteBtn {

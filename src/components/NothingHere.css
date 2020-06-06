@@ -1,0 +1,35 @@
+.nothing-here {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.nothing-here img{
+  margin-top: 7rem;
+  width: 400px;
+}
+
+.nothing-here .title{
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+}
+
+.nothing-here .title .text {
+  background-color: #fff;
+  border-radius: 10px;
+  width: fit-content;
+  padding: .5rem;
+  letter-spacing: .16rem;
+  font-weight: 800;
+}
+
+.nothing-here .title .bottom{
+  margin-left: 3rem;
+  margin-top: .2rem;
+}
+
+.nothing-here .title .top{
+}

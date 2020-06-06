@@ -27,6 +27,7 @@ div.modal-open .container{
   -o-filter: blur(2px);
   -ms-filter: blur(2px);
   filter: blur(2px);
+  opacity: .7;
 }
 
 .container {
@@ -36,6 +37,8 @@ div.modal-open .container{
   padding: 3rem;
   margin-bottom: 15vh;
   box-shadow: 1px 1px 15px rgb(148, 148, 148);
+  min-width: 600px;
+  min-height: 850px;
 }
 
 .App {
@@ -47,6 +50,8 @@ div.modal-open .container{
 }
 
 .App .input{
+  position: absolute;
+  bottom: 3rem;
   width: 64px;
   margin-top: 3rem;
   margin-bottom: 0rem;
@@ -72,6 +77,7 @@ div.modal-open .container{
 .App .finished {
   margin-top: 3rem;
 }
+
 
 
 

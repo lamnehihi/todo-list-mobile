@@ -1,9 +1,16 @@
 .Modal {
   position: absolute;
+  display: flex;
+  justify-content: center;
   top: 30rem;
-  right: 15rem;
+  width: 100%;
+  background-color: rgba(0, 255, 255, 0);
 }
 
 .Modal input {
-  
+  height: 50px;
+  width: 70%;
+  outline: none;
+  border-radius: 10px;
+  font-size: 20px;
 }
