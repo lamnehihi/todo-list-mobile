@@ -17,10 +17,22 @@ p {
     margin: 0;
 }
 
+.body {
+  position: relative;
+}
+
+div.modal-open .container{
+  -webkit-filter: blur(2px);
+  -moz-filter: blur(2px);
+  -o-filter: blur(2px);
+  -ms-filter: blur(2px);
+  filter: blur(2px);
+}
+
 .container {
   margin-top: 15vh;
   border-radius: 12px;
-  background-color: #5FB4BF;
+  background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.10307082688877345) 14%), #5FB4BF;
   padding: 3rem;
   margin-bottom: 15vh;
   box-shadow: 1px 1px 15px rgb(148, 148, 148);
@@ -28,35 +40,18 @@ p {
 
 .App {
   margin-top: 50px;
-}
-
-.App .input {
   display: flex;
-  box-shadow: 0px 1px 3px rgb(186, 186, 186);
-  background-color: #f0f0f025;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
-.App .input input {
-  padding: 0;
-  border: none;
-  outline: none;
-  height: 65px;
-  font-size: 24px;
-  text-decoration: initial;
-  width: 100%;
-  background-color: #f0f0f000;
-}
-
-.App .input input::placeholder {
-  color: rgb(216, 216, 216);
-  font-size: 24px;
-  font-weight: 200;
-  font-style: italic;
-}
-
-.App .input img {
-  width: 20px;
-  margin: 0rem 1rem 0rem 2rem;
+.App .input{
+  width: 64px;
+  margin-top: 3rem;
+  margin-bottom: 0rem;
+  box-shadow: 0px 0px 15px #FFF;
+  border-radius:50%;
 }
 
 .App .section {
@@ -77,6 +72,8 @@ p {
 .App .finished {
   margin-top: 3rem;
 }
+
+
 
 
 

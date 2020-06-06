@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import "./App.css";
 import TodoItem from "./components/TodoItem";
 import { render } from "@testing-library/react";
-import downArrow from "./down-arrow.svg";
+import addBtn from "./add.svg";
+import ModalAdd from "./components/ModalAdd";
+import classNames from "classnames";
 
 class App extends Component {
   constructor() {
@@ -17,10 +19,12 @@ class App extends Component {
         { title: "Không làm mà đòi có ăn" },
         { title: "Thì ăn gì ?" },
       ],
+      isAdd: false,
     };
 
     this.addItem = this.addItem.bind(this);
     this.onChange = this.onChange.bind(this);
+    this.Adding = this.Adding.bind(this);
   }
   itemClick(item) {
     return (event) => {
@@ -54,66 +58,82 @@ class App extends Component {
   }
 
   addItem(event) {
-    if (event.keyCode === 13) {
-      const value = event.target.value;
-      if (value === "") return;
-      if (value.trim() === "") return;
-      this.setState({
-        newItem: "",
-        todoItems: [{ title: value.trim() }, ...this.state.todoItems],
-      });
-      event.target.value = "";
-    }
+    return (event) => {
+      if (event.keyCode === 13) {
+        const value = event.target.value;
+        if (value === "") return;
+        if (value.trim() === "") return;
+        this.setState({
+          newItem: "",
+          todoItems: [{ title: value.trim() }, ...this.state.todoItems],
+          isAdd: false,
+        });
+      }
+    };
   }
 
   onChange(event) {
+    return (event) => {
+      this.setState({
+        newItem: event.target.value,
+      });
+    };
+  }
+
+  Adding() {
     this.setState({
-      newItem: event.target.value,
+      isAdd: !this.state.isAdd,
     });
   }
 
   render() {
     const todoItems = this.state.todoItems;
+    const isAdd = this.state.isAdd;
     return (
-      <div className="container">
-        <h1>DAILIST</h1>
-        <div className="App">
-          <div className="upcoming section">
-            <div className="todos">
-              {todoItems.length > 0 && <span className="span">UPCOMING</span>}
-              {todoItems.length > 0 &&
-                todoItems
-                  .filter((item) => !item.isComplete)
-                  .map((item, index) => (
-                    <TodoItem
-                      key={index}
-                      item={item}
-                      index={index}
-                      onClick={this.itemClick(item)}
-                      onClickDelete={this.itemDelete(item)}
-                    />
-                  ))}
+      <div
+        className={classNames("body supreme-container", {
+          "modal-open": isAdd,
+        })}
+      >
+        <div className="container">
+          <h1>DAILIST</h1>
+          <div className="App">
+            <div className="upcoming section">
+              <div className="todos">
+                {todoItems.length > 0 && <span className="span">UPCOMING</span>}
+                {todoItems.length > 0 &&
+                  todoItems
+                    .filter((item) => !item.isComplete)
+                    .map((item, index) => (
+                      <TodoItem
+                        key={index}
+                        item={item}
+                        index={index}
+                        onClick={this.itemClick(item)}
+                        onClickDelete={this.itemDelete(item)}
+                      />
+                    ))}
+              </div>
             </div>
-          </div>
-          <div className="finished section">
-            <div className="todos">
-              {todoItems.length > 0 && <span className="span">FINISHED</span>}
-              {todoItems.length > 0 &&
-                todoItems
-                  .filter((item) => item.isComplete)
-                  .map((item, index) => (
-                    <TodoItem
-                      key={index}
-                      item={item}
-                      index={index}
-                      onClick={this.itemClick(item)}
-                      onClickDelete={this.itemDelete(item)}
-                    />
-                  ))}
+            <div className="finished section">
+              <div className="todos">
+                {todoItems.length > 0 && <span className="span">FINISHED</span>}
+                {todoItems.length > 0 &&
+                  todoItems
+                    .filter((item) => item.isComplete)
+                    .map((item, index) => (
+                      <TodoItem
+                        key={index}
+                        item={item}
+                        index={index}
+                        onClick={this.itemClick(item)}
+                        onClickDelete={this.itemDelete(item)}
+                      />
+                    ))}
+              </div>
             </div>
-          </div>
-          {todoItems.length === 0 && <p>Nothing here!</p>}
-          <div className="input">
+            {todoItems.length === 0 && <p>Nothing here!</p>}
+            {/* <div className="input">
             <img src={downArrow} />
             <input
               type="text"
@@ -122,8 +142,17 @@ class App extends Component {
               onChange={this.onChange}
               onKeyUp={this.addItem}
             ></input>
+          </div> */}
+            <img src={addBtn} className="input" onClick={this.Adding} />
           </div>
         </div>
+        {isAdd && (
+          <ModalAdd
+            value={this.state.newItem}
+            onChange={this.onChange()}
+            onKeyUp={this.addItem()}
+          />
+        )}
       </div>
     );
   }
