@@ -4,7 +4,6 @@ import TodoItem from "./components/TodoItem";
 import ModalAdd from "./components/ModalAdd";
 import NothingHere from "./components/NothingHere";
 
-import { render } from "@testing-library/react";
 import addBtn from "./add.svg";
 import classNames from "classnames";
 
@@ -14,12 +13,12 @@ class App extends Component {
     this.state = {
       newItem: "",
       todoItems: [
-        // { title: "Go to market", isComplete: true },
-        // { title: "Buy food", isComplete: true },
-        // { title: "Work out", isComplete: true },
-        // { title: "Có làm thì mới có ăn" },
-        // { title: "Không làm mà đòi có ăn" },
-        // { title: "Thì ăn gì ?" },
+        { title: "Go to market", isComplete: true },
+        { title: "Buy food", isComplete: true },
+        { title: "Work out", isComplete: true },
+        { title: "Có làm thì mới có ăn" },
+        { title: "Không làm mà đòi có ăn" },
+        { title: "Thì ăn gì ?" },
       ],
       isAdd: false,
     };
@@ -137,7 +136,7 @@ class App extends Component {
             </div>
             {todoItems.length === 0 && <NothingHere />
             }
-            <img src={addBtn} className="input" onClick={this.Adding} />
+            <img src={addBtn} className="input" onClick={this.Adding} alt="def"/>
           </div>
         </div>
         {isAdd && (
