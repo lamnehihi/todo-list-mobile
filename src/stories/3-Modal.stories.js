@@ -7,7 +7,7 @@ export default {
 };
 
 export const AddNewItem = () => (
-  <AddNewItem value="Go to gym"></AddNewItem>
+  <ModalAdd value="Go to gym"></ModalAdd>
 );
 
 // export const Emoji = () => (
